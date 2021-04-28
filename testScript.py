@@ -1,17 +1,19 @@
 import numpy as np
 import os
-import sys
 
 a = 3
 b = 20
 c = 1E7
 arr = np.zeros(a)
-arr += b
+for i in range(a): arr[i] = (i + 1) * b
 arr2 = np.zeros([a, a])
 for i in range(a):
     for j in range(a):
-        arrs[i, j] = (i + 1) * j
+        arr2[i, j] = (i + 1) * j
 
-print(a / b)
-print(arrs @ b)
-print(format(c, '%d'))
+print(arr2)
+print(arr2 @ arr)
+print(format(int(c), ','))
+
+print('extra stuff')
+print(os.getcwd())
