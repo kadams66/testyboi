@@ -15,3 +15,5 @@ for i in range(a):
 print(a / b)
 print(arrs @ b)
 print(format(c, '%d'))
+
+print(sys.argv)
