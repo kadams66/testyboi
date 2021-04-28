@@ -3,16 +3,20 @@
 ## Git commands
 
 https://git-scm.com/docs - List of common commands and syntax
+
 https://ndpsoftware.com/git-cheatsheet.html#loc=index; - Cool interactive visualization of how the commands all interact
+
 https://training.github.com/downloads/github-git-cheat-sheet/ - GitHub official cheat sheet with more a smaller set of common commands and explanations
+
 Additionally, you can type --help at the end of any command to bring up docs for that command
 
 ## Step 0 - Giting Git
 
 Install git if you haven't already.
+
 https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-This link shows how to install git depending on your OS. There are many options, and even some GUI versions (also there under downloads and GUI clients on the left) that make things more convenient. Additionally, some IDEs and text editors alos have git support in the application itself, which is also quite easy (I know from experience VS-Code and Atom both have really nice git integrations).
-Also you'll obviously need a github account.
+
+This link shows how to install git depending on your OS. There are many options, and even some GUI versions (also there under downloads and GUI clients on the left) that make things more convenient. Additionally, some IDEs and text editors alos have git support in the application itself, which is also quite easy (I know from experience VS-Code and Atom both have really nice git integrations). Also, you'll obviously need a github account.
 
 ## Step 1 - Forking
 
@@ -41,6 +45,7 @@ Replace <Message Here> with the commit message for this commit. This will 'commi
 git push
 ```
 to push all current commits to the server. Git will figure out all the changes from the server stored files made (based on the commit history) and make those changes there. If there are any conflicts (i.e. someone else pushed changes for the same area of code to you and you hadn't fetched/pulled those changes when you made commits) and git can't figure out how to manage them, it will *probably* complain.
+  
 One last thing, all three of these are also handled easily by IDEs and editors, which make things very easy as these commands would be by far the most used commands.
 
 ## Step 4 - Branching and handling conflicts
@@ -58,6 +63,7 @@ and this will display all current branches on your repo. You should notice two e
 git checkout <branch name>
 ```
 Checkout will check if the current branch has any unsaved changes that should be committed first, and if not, it will switch to the new branch. if you retype `git branch` the new branch should be highlighted now and 'main' unhighlighted.
+
 Now comes the interesting stuff. Open back up the file from before, make a new change, and stage, commit, and push the changes to the server as before, but under the new branch. UH OH! If things happened correctly, when you tried to push your commits to the server, there should've been an error that pops up saying `fatal: The current branch <branch name> has no upstream branch`. This error is caused by creating the branch only on your local machine. If you created the branch through github instead the upstream branch would be there and whenever you next fetched and pulled you would be able to access the branch on your local machine. But, since we created the branch locally, we need to now tell the server that it needs to also track this branch. Type out:
 ```
 git push --set-upstream origin <branch name>
