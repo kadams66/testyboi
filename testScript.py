@@ -1,5 +1,6 @@
 import numpy as np
 import os
+import sys
 
 a = 3
 b = 20
@@ -17,3 +18,4 @@ print(format(int(c), ','))
 
 print('extra stuff')
 print(os.getcwd())
+print(sys.argv)
